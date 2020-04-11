@@ -1,5 +1,5 @@
 # STAGE 1: Build
-FROM node:alpine AS build
+FROM node:alpine
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
@@ -9,4 +9,4 @@ RUN npm run build
 # STAGE 2: Deployment
 FROM nginx
 EXPOSE 80
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/share/nginx/html
