@@ -1,4 +1,6 @@
 # STAGE 1: Build
+# We do an unnamed build and refer to it later as 0 beacuase
+# of a reported bug on Elastic Beanstalk with named builds.
 FROM node:alpine
 WORKDIR /app
 COPY package*.json ./
